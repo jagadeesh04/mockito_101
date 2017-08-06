@@ -1,0 +1,5 @@
+What is a mock?
+A) Mock is creating objects or dummy classes or mock classes, here it is TodoService so that it simulates behaviour of real objects.
+	Mocks can be created dynamically from the code.
+	You can also verify method calls and lot ofother things
+	
