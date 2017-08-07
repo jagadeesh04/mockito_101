@@ -39,4 +39,12 @@ public class ListTest {
 		assertEquals("jag", listMock.get(1));
 	}
 	
+	@Test(expected=RuntimeException.class)
+	public void letsMockList_throwAnException() {
+		List listMock = mock(List.class);
+		//Argument Matcher
+		when(listMock.get(anyInt())).thenThrow(new RuntimeException("Something"));
+		listMock.get(0);
+	}
+	
 }
