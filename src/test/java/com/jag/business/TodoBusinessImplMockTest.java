@@ -4,6 +4,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
@@ -99,9 +100,11 @@ public class TodoBusinessImplMockTest {
 
 		// Then
 		verify(todoServiceMock, times(2)).deleteTodo("Learn Latin");
+		then(todoServiceMock).should(times(2)).deleteTodo("Learn Latin");
 		verify(todoServiceMock).deleteTodo("Learn Mockito");
+		then(todoServiceMock).should().deleteTodo("Learn Mockito");
 		verify(todoServiceMock, never()).deleteTodo("Learn Spring MVC");
-
+		then(todoServiceMock).should(never()).deleteTodo("Learn Spring MVC");
 	}
 
 }
